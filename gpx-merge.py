@@ -129,6 +129,9 @@ def process_file(tcx_file:str, gpx_file:str) -> None:
         new_gpx = add_cardio_data(gpx_points,tcx_points)
         with open(f"{gpx_file}.new.gpx", "w") as f:
             f.write(new_gpx.to_xml())
+    else:
+        print('timestamps in TCX and GPX file are too seperated for a successful merge')
+        sys.exit()
 
 def main(argv):
     tcx_file = ''
